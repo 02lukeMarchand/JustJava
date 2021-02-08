@@ -12,7 +12,7 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
-    public static int orders = 0;
+    int orders = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,20 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        displayPrice(orders * 5);
+    }
+
+    public void increment(View view){
         orders++;
         display(orders);
-        displayPrice(orders * 5);
+    }
+
+    public void decrement(View view){
+        orders--;
+        if (orders <= 0){
+            orders = 0;
+        }
+        display(orders);
     }
 
     /**

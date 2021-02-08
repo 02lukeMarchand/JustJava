@@ -43,7 +43,7 @@
         android:id="@+id/price_title_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QUANTITY"
+        android:text="PRICE"
         android:textSize="16sp"
         android:paddingTop="16dp"/>
 

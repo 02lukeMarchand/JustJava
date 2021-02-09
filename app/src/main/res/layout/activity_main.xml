@@ -37,7 +37,8 @@
         android:layout_height="48dp"
         android:text="-"
         android:textSize="22dp"
-        android:onClick="decrement"/>
+        android:onClick="decrement"
+        />
 
     <TextView
         android:id="@+id/price_title_textview"

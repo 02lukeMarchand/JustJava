@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void increment(View view){
         orders++;
-        display(orders);
+        displayQuantity(orders);
     }
 
     public void decrement(View view){
@@ -41,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
         if (orders <= 0){
             orders = 0;
         }
-        display(orders);
+        displayQuantity(orders);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }

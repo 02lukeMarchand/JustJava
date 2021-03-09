@@ -13,6 +13,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int orders = 0;
+    String name = "Luke Marchand";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = calculatePrice(orders);
-        String priceMessage = "Total: $" + price;
-        priceMessage += "\nThank You!";
-        displayMessage(priceMessage);
+        displayMessage(createOrderSummary());
         //displayPrice(orders * 5);
     }
 
@@ -68,5 +66,14 @@ public class MainActivity extends AppCompatActivity {
     private int calculatePrice(int quantity) {
         int price = quantity * 5;
         return price;
+    }
+
+    private String createOrderSummary(){
+        String priceMessage = "Name: " + name;
+        priceMessage += "\nQuantity: " + orders;
+        priceMessage += "\nTotal: $" + calculatePrice(orders);;
+        priceMessage += "\nThank You!";
+
+        return priceMessage;
     }
 }

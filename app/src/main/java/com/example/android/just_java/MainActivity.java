@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private String createOrderSummary(){
         String priceMessage = "Name: " + name;
         priceMessage += "\nQuantity: " + orders;
-        priceMessage += "\nTotal: $" + calculatePrice(orders);;
+        priceMessage += "\nTotal: $" + calculatePrice(orders);
         priceMessage += "\nThank You!";
 
         return priceMessage;

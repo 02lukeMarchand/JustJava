@@ -13,6 +13,7 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     int orders = 0;
+    String name = "Luke Marchand";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +25,13 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = orders * 5;
-        String priceMessage = "Total: $" + price;
-        priceMessage += "\nThank You!";
-        displayMessage(priceMessage);
+        displayMessage(createOrderSummary());
         //displayPrice(orders * 5);
     }
 
     public void increment(View view){
         orders++;
-        display(orders);
+        displayQuantity(orders);
     }
 
     public void decrement(View view){
@@ -41,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         if (orders <= 0){
             orders = 0;
         }
-        display(orders);
+        displayQuantity(orders);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
@@ -56,12 +54,26 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given price on the screen.
      */
     private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        TextView priceTextView = (TextView) findViewById(R.id.order_summary_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        TextView priceTextView = (TextView) findViewById(R.id.order_summary_text_view);
         priceTextView.setText(message);
+    }
+
+    private int calculatePrice(int quantity) {
+        int price = quantity * 5;
+        return price;
+    }
+
+    private String createOrderSummary(){
+        String priceMessage = "Name: " + name;
+        priceMessage += "\nQuantity: " + orders;
+        priceMessage += "\nTotal: $" + calculatePrice(orders);
+        priceMessage += "\nThank You!";
+
+        return priceMessage;
     }
 }

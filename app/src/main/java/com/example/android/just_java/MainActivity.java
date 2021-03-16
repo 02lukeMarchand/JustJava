@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -33,13 +34,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void increment(View view){
         orders++;
+        if (orders > 100){
+            Toast.makeText(this, "you cannot have more than 100 coffees", Toast.LENGTH_SHORT).show();
+            orders = 100;
+        }
         displayQuantity(orders);
     }
 
     public void decrement(View view){
         orders--;
-        if (orders <= 0){
-            orders = 0;
+        if (orders < 1){
+            Toast.makeText(this, "you cannot have less than 1 coffees", Toast.LENGTH_SHORT).show();
+            orders = 1;
         }
         displayQuantity(orders);
     }

@@ -15,14 +15,14 @@
             android:id="@+id/name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="@string/name"
             android:paddingTop="16dp"/>
 
         <TextView
             android:id="@+id/toppings_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TOPPINGS"
+            android:text="@string/toppings"
             android:textSize="16sp"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"/>
@@ -31,7 +31,7 @@
             android:id="@+id/whipped_cream_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Whipped Cream"
+            android:text="@string/whipped_cream"
             android:textColor="#000000"
             android:textSize="16sp"
             android:paddingLeft="24dp"/>
@@ -40,7 +40,7 @@
             android:id="@+id/chocolate_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chocolate"
+            android:text="@string/chocolate"
             android:textColor="#000000"
             android:textSize="16sp"
             android:paddingLeft="24dp"/>
@@ -49,7 +49,7 @@
             android:id="@+id/top_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="QUANTITY"
+            android:text="@string/quantity"
             android:textSize="16sp"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"/>
@@ -108,7 +108,7 @@
                     android:id="@+id/order_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ORDER"
+                    android:text="@string/order"
                     android:onClick="submitOrder"
                     android:layout_marginTop="16dp"/>
 

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //intent.putExtra(Intent.EXTRA_EMAIL, addresses);
         EditText nameBox = (EditText) findViewById(R.id.name_edit_text);
         name = nameBox.getText().toString();
-        intent.putExtra(Intent.EXTRA_SUBJECT, "JustJava Order for " + name);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_summary_subject, name));
         intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary());
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         //priceTextView.setText(message);
     }
 
-    private int calculatePrice(int quantity) {
+    private String calculatePrice(int quantity) {
         int price = quantity * 5;
         CheckBox whippedCream = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate_checkbox);
@@ -93,24 +93,24 @@ public class MainActivity extends AppCompatActivity {
         if (chocolate.isChecked()){
             price += quantity * 2;
         }
-        return price;
+        return "$" + price;
     }
 
     private String createOrderSummary(){
         EditText nameBox = (EditText) findViewById(R.id.name_edit_text);
         name = nameBox.getText().toString();
-        String priceMessage = "Name: " + name;
-        priceMessage += "\nQuantity: " + orders;
+        String priceMessage = getString(R.string.order_summary_name, name);
+        priceMessage += "\n" + getString(R.string.order_summary_quantity, orders);
         CheckBox whippedCream = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate_checkbox);
         if (whippedCream.isChecked()){
-            priceMessage += "\nAdd Whipped Cream";
+            priceMessage += "\n" + getString(R.string.whipped_cream_summary);
         }
         if (chocolate.isChecked()){
-            priceMessage += "\nAdd Chocolate";
+            priceMessage += "\n" + getString(R.string.chocolate_summary);
         }
-        priceMessage += "\nTotal: $" + calculatePrice(orders);
-        priceMessage += "\nThank You!";
+        priceMessage += "\n" + getString(R.string.order_summary_price, calculatePrice(orders));
+        priceMessage += "\n" + getString(R.string.thank_you);
 
         return priceMessage;
     }
